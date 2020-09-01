@@ -1,0 +1,14 @@
+<div class="bg"></div>
+
+
+<div class="card mid-screen">
+    <ng-template *ngIf="!toggleView; then login; else register"></ng-template>
+</div>
+
+<ng-template #login>
+    <app-login (goRegister)="toggleLoginRegister()"></app-login>
+</ng-template>
+
+<ng-template #register>
+    <app-sign-in (goLogin)="toggleLoginRegister()"></app-sign-in>
+</ng-template>

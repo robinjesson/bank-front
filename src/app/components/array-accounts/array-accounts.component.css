@@ -1,0 +1,14 @@
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.scrollmenu li {
+    display: inline-block;
+    padding: 10px;
+}
+
+.scrollmenu li:hover {
+    background-color: gray;
+    color: white;
+}

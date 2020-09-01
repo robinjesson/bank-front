@@ -1,0 +1,4 @@
+<div class="container">
+    <app-array-accounts [user]="user" (accountId)="currentAccount = $event"></app-array-accounts>
+    <app-array-writings [accountId]="currentAccount"></app-array-writings>
+</div>

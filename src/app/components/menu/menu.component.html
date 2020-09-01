@@ -1,0 +1,19 @@
+<br>
+<ng-container *ngIf="isAuthenticated()">
+    <ul>
+        <li (click)="toggleMenu()" class="btn btn-secondary">
+            <i [ngClass]=" { 'fa fa-chevron-down rotate180': clicked, 'fa fa-chevron-down rotate-back': !clicked} " class="fas fa-chevron-right "></i>
+        </li>
+        <li routerLinkActive="active" *ngIf="!!username" routerLink="user" class="btn btn-secondary">
+            Bonjour {{username | name}} !
+        </li>
+        <li routerLinkActive="active" *ngIf="clicked" routerLink="dashboard" class="btn btn-secondary">
+            Tableau de bord
+        </li>
+        <li *ngIf="clicked" (click)="onSignOut()" class="btn btn-secondary">
+            <i class="fas fa-sign-out-alt"></i>
+        </li>
+
+    </ul>
+</ng-container>
+<br>

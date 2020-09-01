@@ -1,0 +1,40 @@
+ul li {
+    display: inline;
+    padding: 20px;
+    margin-left: 10px;
+    border-radius: 1000px;
+}
+
+.li:hover {
+    transition: 0.9s;
+    background-color: red;
+}
+
+.rotate180 {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: all linear 200ms;
+    transition: all linear 300ms;
+}
+
+.rotate-back {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: all linear 200ms;
+    transition: all linear 300ms;
+}
+
+
+/*
+.btn {
+    border: 1px solid white;
+    background-color: whitesmoke;
+}
+
+.btn:hover {
+    background-color: gray;
+}
+
+.active {
+    background-color: gainsboro;
+}*/

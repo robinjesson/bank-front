@@ -1,0 +1,25 @@
+.pass-btn {
+    border-radius: 0;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin: 1px;
+    z-index: 90;
+}
+
+.pass-btn:hover {
+    background-color: gray;
+    color: white;
+}
+
+.pass-btn:active {
+    background-color: gray;
+    color: white;
+    width: 36px;
+    height: 36px;
+    margin: 3px;
+}
+
+.pass-btn:focus {
+    outline: 0;
+}

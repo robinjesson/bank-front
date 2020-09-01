@@ -1,0 +1,16 @@
+<div class="text-center">
+
+    <ng-container *ngFor="let nb of shuffled; let index = index">
+        <button class="pass-btn" (click)="onClickNumber(nb)">{{nb}}</button>
+        <ng-container *ngIf="index == 4">
+            <button class="pass-btn" (click)="onClickBack()">
+                <i class="fas fa-backspace"></i>
+            </button><br>
+        </ng-container>
+    </ng-container>
+    <button class="pass-btn" (click)="onClickErase()">
+        <i class="fas fa-times"></i>
+    </button>
+
+</div>
+<br>

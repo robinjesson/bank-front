@@ -1,0 +1,38 @@
+<div class="card-body" [formGroup]="signForm">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Identifiant</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="username">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Code</span>
+        </div>
+        <input [type]="pass1Visible ? 'text' : 'password'" class="form-control" readonly [value]="pass1">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="pass1Visible = !pass1Visible">
+                <i class="far" [ngClass]="{'fa-eye':!pass1Visible, 'fa-eye-slash':pass1Visible}"></i>
+            </button>
+        </div>
+    </div>
+    <app-pass-code (back)="removeLastPass1()" (nb)="addNumber1($event)" (erase)="erasePass1()"></app-pass-code>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Confirmer code</span>
+        </div>
+        <input [type]="pass2Visible ? 'text' : 'password'" class="form-control" [ngClass]="{'red-border':!isSamePassword(), 'green-border':isSamePassword()}" readonly [value]="pass2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="pass2Visible = !pass2Visible">
+                <i class="far" [ngClass]="{'fa-eye':!pass2Visible, 'fa-eye-slash':pass2Visible}"></i>
+            </button>
+        </div>
+    </div>
+    <app-pass-code (back)="removeLastPass2()" (nb)="addNumber2($event)" (erase)="erasePass2()"></app-pass-code>
+    <div class="text-right">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button (click)="goLogin.emit()" type="submit" class="btn btn-light">Se connecter</button>
+            <button (click)=" onSignIn()" type="submit" class="btn btn-success" [disabled]="!isSamePassword()">S'inscrire</button>
+        </div>
+    </div>
+</div>

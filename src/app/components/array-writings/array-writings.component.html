@@ -1,0 +1,20 @@
+<table class="table" *ngIf="writings.length > 0">
+    <thead>
+        <th>Montant</th>
+        <th>Date</th>
+        <th></th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let w of writings">
+            <td>{{w.amount * -1}}</td>
+            <td>{{w.beginDate | date:'dd/mm/yy'}}</td>
+            <td *ngIf="w.writingType != 'Once'">{{w.endDate | date:'dd/mm/yy'}}</td>
+            <td *ngIf="w.writingType == 'Once'"></td>
+            <td>
+                <a href=""><i class="fas fa-pen"></i></a>
+                <a href=""><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

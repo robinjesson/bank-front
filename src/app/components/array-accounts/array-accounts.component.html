@@ -1,0 +1,3 @@
+<ul class="scrollmenu">
+    <li *ngFor="let account of accounts" (click)="onSelectAccount(account.id)"><b>{{account.name | uppercase}}</b> {{account.total}}</li>
+</ul>
