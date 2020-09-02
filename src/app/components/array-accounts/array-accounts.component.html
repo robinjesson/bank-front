@@ -1,3 +1,13 @@
-<ul class="scrollmenu">
-    <li *ngFor="let account of accounts" (click)="onSelectAccount(account.id)"><b>{{account.name | uppercase}}</b> {{account.total}}</li>
-</ul>
+<mat-tab-group>
+    <mat-tab *ngFor="let account of accounts">
+        <ng-template mat-tab-label>
+            <b>{{account.name | uppercase}}</b>&nbsp;&nbsp;{{account.total}}
+        </ng-template>
+        <app-array-writings [accountId]="account.id"></app-array-writings>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <i class="fas fa-plus"></i>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

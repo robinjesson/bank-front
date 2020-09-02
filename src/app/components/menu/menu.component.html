@@ -1,19 +1,15 @@
-<br>
-<ng-container *ngIf="isAuthenticated()">
-    <ul>
-        <li (click)="toggleMenu()" class="btn btn-secondary">
+<mat-toolbar *ngIf="isAuthenticated()">
+    <button mat-stroked-button (click)="toggleMenu()">
             <i [ngClass]=" { 'fa fa-chevron-down rotate180': clicked, 'fa fa-chevron-down rotate-back': !clicked} " class="fas fa-chevron-right "></i>
-        </li>
-        <li routerLinkActive="active" *ngIf="!!username" routerLink="user" class="btn btn-secondary">
+        </button>
+    <button mat-stroked-button routerLinkActive="active" *ngIf="!!username" routerLink="user">
             Bonjour {{username | name}} !
-        </li>
-        <li routerLinkActive="active" *ngIf="clicked" routerLink="dashboard" class="btn btn-secondary">
+        </button>
+    <button mat-stroked-button routerLinkActive="active" *ngIf="clicked" routerLink="dashboard">
             Tableau de bord
-        </li>
-        <li *ngIf="clicked" (click)="onSignOut()" class="btn btn-secondary">
+        </button>
+    <button mat-stroked-button *ngIf="clicked" (click)="onSignOut()">
             <i class="fas fa-sign-out-alt"></i>
-        </li>
+        </button>
 
-    </ul>
-</ng-container>
-<br>
+</mat-toolbar>

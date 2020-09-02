@@ -15,7 +15,6 @@ export class AuthInterceptor implements HttpInterceptor {
    * @param next structure to contain the modified http request
    */
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log("interecept")
     let authReq = req;
     const token = this._authService.getToken();
     if (token != null) {

@@ -24,17 +24,6 @@ ul li {
     transition: all linear 300ms;
 }
 
-
-/*
-.btn {
-    border: 1px solid white;
-    background-color: whitesmoke;
+button {
+    margin-right: 10px;
 }
-
-.btn:hover {
-    background-color: gray;
-}
-
-.active {
-    background-color: gainsboro;
-}*/

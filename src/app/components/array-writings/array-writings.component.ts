@@ -16,7 +16,7 @@ export class ArrayWritingsComponent {
   set accountId(id:number) {
     if(id) {
       this._accountService.getAccountWritings(id).subscribe(
-        (data) => {this.writings = data; console.log(this.writings)},
+        (data) => this.writings = data,
         (err: HttpErrorResponse) => this._toastService.show(err.message, { classname: 'bg-danger'})
       );
     }

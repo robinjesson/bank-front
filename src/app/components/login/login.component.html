@@ -1,29 +1,20 @@
-<div class="card-body">
-    <form [formGroup]="loginForm">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Identifiant</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="username">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Code</span>
-            </div>
-            <input [type]="passVisible ? 'text' : 'password'" class="form-control" readonly [value]="pass">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="passVisible = !passVisible">
-                    <i class="far" [ngClass]="{'fa-eye':!passVisible, 'fa-eye-slash':passVisible}"></i>
-                </button>
-            </div>
-        </div>
+<form [formGroup]="loginForm">
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Identifiant</mat-label>
+        <input matInput formControlName="username">
+    </mat-form-field>
 
-        <app-pass-code (back)="removeLastPass()" (nb)="addNumber($event)" (erase)="erasePass()"></app-pass-code>
-    </form>
-    <div class="text-right">
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <button (click)="goRegister.emit()" type="submit" class="btn btn-light">S'inscrire</button>
-            <button (click)="onLogIn()" type="submit" class="btn btn-success">Se connecter</button>
-        </div>
-    </div>
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Code</mat-label>
+        <input matInput [type]="passVisible ? 'text' : 'password'" readonly [value]="pass">
+        <button mat-icon-button matSuffix (click)="passVisible = !passVisible" [attr.aria-label]="'Hide password'">
+        <mat-icon>{{passVisible ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <app-pass-code class="center" (back)="removeLastPass()" (nb)="addNumber($event)" (erase)="erasePass()"></app-pass-code>
+</form>
+<div class="right">
+    <button mat-button (click)="goRegister.emit()" type="submit">S'inscrire</button>
+    <button mat-stroked-button color="primary" (click)="onLogIn()" type="submit" class="btn btn-success">Se connecter</button>
 </div>
