@@ -1,0 +1,38 @@
+{
+    "fr": {
+        "menu.hello": "Bonjour",
+        "menu.dashboard": "Tableaux de bord",
+        "menu.administrator": "Administrateur",
+        "private.noNotification": "Aucune notification",
+        "button.ok": "Ok",
+        "button.cancel": "Annuler",
+        "writing-add.title": "Ajouter une écriture",
+        "writing-add.label": "Intitulé",
+        "writing-add.amount": "Montant",
+        "writing-add.date": "Date",
+        "writing-add.type": "Récurrence",
+        "writing-add.once": "Une fois",
+        "writing-add.daily": "Quotidien",
+        "writing-add.monthly": "Mensuel",
+        "writing-add.yearly": "Annuel",
+        "writing-add.end": "Fin de récurrence"
+    },
+    "en": {
+        "menu.hello": "Hello",
+        "menu.dashboard": "Dashboard",
+        "menu.administrator": "Administrator",
+        "private.noNotification": "No notification",
+        "button.ok": "Ok",
+        "button.cancel": "Cancel",
+        "writing-add.title": "Add a writing",
+        "writing-add.label": "Label",
+        "writing-add.amount": "AMount",
+        "writing-add.date": "Date",
+        "writing-add.type": "Type",
+        "writing-add.once": "Once",
+        "writing-add.daily": "Daily",
+        "writing-add.monthly": "Monthly",
+        "writing-add.yearly": "Yearly",
+        "writing-add.end": "End"
+    }
+}

@@ -15,6 +15,6 @@
     <app-pass-code class="center" (back)="removeLastPass()" (nb)="addNumber($event)" (erase)="erasePass()"></app-pass-code>
 </form>
 <div class="right">
-    <button mat-button (click)="goRegister.emit()" type="submit">S'inscrire</button>
-    <button mat-stroked-button color="primary" (click)="onLogIn()" type="submit" class="btn btn-success">Se connecter</button>
+    <button mat-button (click)="goRegister.emit()">S'inscrire</button>
+    <button mat-stroked-button color="primary" (click)="onLogIn()" class="btn btn-success">Se connecter</button>
 </div>

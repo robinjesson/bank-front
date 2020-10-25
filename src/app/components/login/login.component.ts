@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
-import { ToastService } from 'src/app/services/toast.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { UserService } from 'src/app/services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as sha512 from 'js-sha512';
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     private _authenticationService: AuthenticationService,
     private _router: Router,
     private _formBuilder: FormBuilder,
-    private _toastService: ToastService,
+    private _toastService: NotificationService,
     private _userService: UserService,) { 
       this.initForm();
     }
@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
 
   public onLogIn(): void {
     const formValue = this.loginForm.value;
+
+    console.log(sha512.sha512(this.pass))
     
     this._authenticationService.authenticate(formValue.username, sha512.sha512(this.pass)).subscribe(
       (data) => {
@@ -50,8 +52,7 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['private']);
       },
       (err: HttpErrorResponse) => {
-        this._toastService.show("Identifiant ou mot de passe incorrect.",
-        { classname: 'bg-warning'});
+        this._toastService.show({text: "Identifiant ou mot de passe incorrect."});
       }
     )
   }

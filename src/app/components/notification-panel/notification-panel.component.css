@@ -1,0 +1,22 @@
+#noNotification {
+    color: gainsboro;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#date {
+    margin: 15px;
+    font-size: x-large;
+    line-height: 150%;
+}
+
+.weather {
+    margin: 15px;
+    font-size: large;
+    line-height: 150%;
+}
+
+.weather-img {
+    margin-bottom: 6px;
+    margin-right: -15px;
+}

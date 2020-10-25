@@ -1,3 +1,8 @@
-<div class="container">
-    <app-array-accounts [user]="user" (accountId)="currentAccount = $event"></app-array-accounts>
+<div class="grid">
+    <div class="column">
+        <app-array-accounts [user]="user" [(account)]="currentAccount"></app-array-accounts>
+    </div>
+    <div class="column">
+        <app-array-writings [account]="currentAccount"></app-array-writings>
+    </div>
 </div>

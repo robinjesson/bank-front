@@ -7,6 +7,7 @@ import { take } from 'rxjs/operators';
 
 const TOKEN_KEY : string = 'auth-token';
 const USER_KEY : string  = 'auth-user';
+const LANG_KEY : string  = 'lang';
 
 @Injectable({
   providedIn: 'root'
@@ -56,11 +57,20 @@ export class AuthenticationService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
+  public saveLang(lang : string): void {
+    window.sessionStorage.removeItem(LANG_KEY);
+    window.sessionStorage.setItem(LANG_KEY, JSON.stringify(lang));
+  }
+
   /**
    * Gets the current user
    */
   public getUser() {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
+  }
+
+  public getLang() {
+    return JSON.parse(sessionStorage.getItem(LANG_KEY));
   }
 
   /**

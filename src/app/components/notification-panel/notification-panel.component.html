@@ -1,0 +1,12 @@
+<p id="date">{{today | today}}.</p>
+<ng-container *ngIf="weather">
+    <span><img class="weather-img" style="height: 3rem;" [src]="weatherService.getIconUrl(weather.icon)"></span>
+    <span class="weather">{{weather.temp}}&deg;C.</span>
+</ng-container>
+
+<p id="noNotification" *ngIf="_notificationService.notifications.length == 0; else notifications">
+    {{ 'private.noNotification' | translate}}
+</p>
+<ng-template #notifications>
+    <app-notification *ngFor="let n of _notificationService.notifications" [notification]="n"></app-notification>
+</ng-template>

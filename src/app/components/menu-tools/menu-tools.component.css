@@ -1,0 +1,18 @@
+.tools {
+    border: 1px gainsboro solid;
+    border-radius: 100px;
+}
+
+.tools-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.tools>button:hover {
+    background-color: gainsboro;
+}
+
+.tools-active {
+    background-color: gainsboro;
+}

@@ -1,13 +1,7 @@
-<mat-tab-group>
-    <mat-tab *ngFor="let account of accounts">
-        <ng-template mat-tab-label>
-            <b>{{account.name | uppercase}}</b>&nbsp;&nbsp;{{account.total}}
-        </ng-template>
-        <app-array-writings [accountId]="account.id"></app-array-writings>
-    </mat-tab>
-    <mat-tab>
-        <ng-template mat-tab-label>
-            <i class="fas fa-plus"></i>
-        </ng-template>
-    </mat-tab>
-</mat-tab-group>
+<div matRipple class="tile" *ngFor="let acc of accounts" (click)="accountChange.emit(acc)" [class.tile-active]="acc.id == account.id">
+    {{acc.name}}
+    <div>{{acc.total}} <i class="fas fa-euro-sign"></i></div>
+</div>
+<span matRipple class="tile">
+    <i class="fas fa-plus"></i>
+</span>

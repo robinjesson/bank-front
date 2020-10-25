@@ -1,0 +1,5 @@
+<div class="alert">
+    <span class="closebtn" (click)="_notificationService.remove(notification)">&times;</span>
+    <p>{{notification.text}}</p>
+    <small *ngIf="notification.date">{{notification.date | date}}</small>
+</div>

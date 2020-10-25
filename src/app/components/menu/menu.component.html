@@ -1,15 +1,8 @@
-<mat-toolbar *ngIf="isAuthenticated()">
-    <button mat-stroked-button (click)="toggleMenu()">
-            <i [ngClass]=" { 'fa fa-chevron-down rotate180': clicked, 'fa fa-chevron-down rotate-back': !clicked} " class="fas fa-chevron-right "></i>
-        </button>
-    <button mat-stroked-button routerLinkActive="active" *ngIf="!!username" routerLink="user">
-            Bonjour {{username | name}} !
-        </button>
-    <button mat-stroked-button routerLinkActive="active" *ngIf="clicked" routerLink="dashboard">
-            Tableau de bord
-        </button>
-    <button mat-stroked-button *ngIf="clicked" (click)="onSignOut()">
-            <i class="fas fa-sign-out-alt"></i>
-        </button>
-
+<mat-toolbar *ngIf="isAuthenticated()" class="scrollMenu">
+    <button mat-stroked-button *ngIf="!!username" [matBadge]="_notificationService.notifications.length" [matBadgeHidden]="_notificationService.notifications.length<1" mat-stroked-button (click)="showNotification.emit()">
+        {{'menu.hello' | translate}} {{username | name}} !
+    </button>
+    <button mat-stroked-button routerLinkActive="active" routerLink="dashboard">
+        {{'menu.dashboard' | translate}}
+    </button>
 </mat-toolbar>

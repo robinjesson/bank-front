@@ -5,6 +5,8 @@ import { UserComponent } from './components/user/user.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { PrivateComponent } from './components/private/private.component';
+import { AdminGuard } from './guards/admin.guard';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', canActivate: [AuthenticationGuard], component: DashboardComponent },
       { path: 'user', canActivate: [AuthenticationGuard], component: UserComponent },
+      { path: 'admin', canActivate: [AdminGuard], component: AdminComponent },
     ] 
   },
 ];

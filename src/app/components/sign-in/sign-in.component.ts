@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { ToastService } from 'src/app/services/toast.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import * as sha512 from 'js-sha512';
 
@@ -27,7 +27,7 @@ export class SignInComponent {
   constructor(
     private _router: Router,
     private _formBuilder: FormBuilder,
-    private _toastService: ToastService,
+    private _toastService: NotificationService,
     private _userService: UserService,) { 
       this.initForm();
   }
@@ -76,9 +76,9 @@ export class SignInComponent {
     const formValue = this.signForm.value;
     this._userService.addUser({username: formValue.username, password: sha512.sha512(this.pass1)}).subscribe(
       () => {
-        this._toastService.show("Vous êtes inscrit.", { classname: 'bg-success'});
+        this._toastService.show({text: "Vous êtes inscrit."});
       },
-      (err: HttpErrorResponse) => this._toastService.show(err.message, { classname: 'bg-danger'})
+      (err: HttpErrorResponse) => this._toastService.show({text: err.message})
     )
   }
 

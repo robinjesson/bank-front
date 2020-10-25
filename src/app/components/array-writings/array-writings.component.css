@@ -1,0 +1,48 @@
+table {
+    width: 100%;
+}
+
+th {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    text-align: left;
+    height: 4rem;
+}
+
+tr {
+    border-bottom: 2px gray dotted;
+    height: 3rem;
+}
+
+.search {
+    height: 3rem;
+    border: inherit;
+    margin: inherit;
+    padding: 2rem;
+    border-radius: 100px 0 0 100px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.erase {
+    border-radius: 0 100px 100px 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 4rem;
+    background-color: white;
+    border: none;
+    width: 4rem;
+}
+
+.erase:hover {}
+
+.search:focus,
+.erase:focus {
+    outline: none;
+}
+
+.add {
+    border: none;
+    background-color: white;
+    padding: 1rem;
+}

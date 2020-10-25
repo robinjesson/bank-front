@@ -16,6 +16,6 @@ export class AccountService {
   }
 
   public getAccountWritings(id: number): Observable<any> {
-    return this._httpClient.get(API_ACCOUNTS + '/' + id + '/writings').pipe(take(1));
+    return this._httpClient.get(API_ACCOUNTS + '/' + id + '/entries').pipe(take(1));
   }
 }

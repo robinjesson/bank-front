@@ -1,3 +1,31 @@
-.mat-tab-label-content b {
-    margin-right: 10px;
+.tile {
+    width: 12rem;
+    height: 12rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    vertical-align: top;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 1rem;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+.tile:hover:not(.tile-active) {
+    animation: redBg 0.5s;
+    background-color: red;
+}
+
+.tile-active {
+    background-color: red;
+}
+
+@keyframes redBg {
+    0% {
+        background-color: gray;
+    }
+    100% {
+        background-color: red;
+    }
 }

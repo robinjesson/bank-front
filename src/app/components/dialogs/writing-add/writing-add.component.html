@@ -1,0 +1,36 @@
+<header>
+    <h3><b>{{data.account | uppercase}}</b> {{'writing-add.title' | translate}}</h3>
+</header>
+<div class="example-container" [formGroup]="writingForm">
+    <mat-form-field appearance="fill">
+        <mat-label>{{'writing-add.label' | translate}}</mat-label>
+        <input matInput type="text" formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{'writing-add.amount' | translate}}</mat-label>
+        <input matInput type="number" formControlName="amount">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{'writing-add.date' | translate}}</mat-label>
+        <input matInput type="date" formControlName="date">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{'writing-add.type' | translate}}</mat-label>
+        <mat-select formControlName="periodUnit">
+            <mat-option [value]="EPeriodUnit.Once">{{'writing-add.once' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Day">{{'writing-add.day' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Week">{{'writing-add.week' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Month">{{'writing-add.month' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Year">{{'writing-add.year' | translate}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" *ngIf="writingForm.value.periodUnit !== EPeriodUnit.Once">
+        <mat-label>{{'writing-add.end' | translate}}</mat-label>
+        <input matInput type="date" formControlName="end">
+    </mat-form-field>
+</div>
+
+<footer style="text-align: right;">
+    <button mat-button mat-dialog-close>{{'button.cancel' | translate}}</button>
+    <button mat-stroked-button color="primary" [mat-dialog-close]="writingForm.value">{{'button.ok' | translate}}</button>
+</footer>

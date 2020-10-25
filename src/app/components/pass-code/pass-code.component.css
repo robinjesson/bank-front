@@ -23,3 +23,7 @@
 .pass-btn:focus {
     outline: 0;
 }
+
+.correct-btn {
+    margin-top: 3px;
+}

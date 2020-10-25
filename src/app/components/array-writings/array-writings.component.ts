@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
-import { ToastService } from 'src/app/services/toast.service';
+import { NotificationService } from 'src/app/services/notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { TAccountResponse, TEntryResponse } from 'src/app/utils/types';
+import { DialogService } from 'src/app/services/dialog.service';
+import { WritingAddComponent } from '../dialogs/writing-add/writing-add.component';
 
 @Component({
   selector: 'app-array-writings',
@@ -10,14 +13,17 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ArrayWritingsComponent {
 
-  public writings: any[];
+  public entries: TEntryResponse[];
+  private _account: TAccountResponse;
+
 
   @Input()
-  set accountId(id:number) {
-    if(id) {
-      this._accountService.getAccountWritings(id).subscribe(
-        (data) => this.writings = data,
-        (err: HttpErrorResponse) => this._toastService.show(err.message, { classname: 'bg-danger'})
+  public set account(account: TAccountResponse) {
+    if(account) {
+      this._account = account;
+      this._accountService.getAccountWritings(account.id).subscribe(
+        (data) => this.entries = data,
+        (err: HttpErrorResponse) => this._toastService.show({text: err.message})
       );
     }
     
@@ -25,7 +31,14 @@ export class ArrayWritingsComponent {
 
   constructor(
     private _accountService: AccountService, 
-    private _toastService: ToastService) { }
+    private _toastService: NotificationService,
+    private _dialogService: DialogService) { }
+
+  public async onAddEntry() {
+    await this._dialogService.open(WritingAddComponent, {
+      account: this._account.name
+    });
+  }
 
 
 }

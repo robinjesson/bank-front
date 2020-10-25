@@ -27,3 +27,8 @@ ul li {
 button {
     margin-right: 10px;
 }
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}

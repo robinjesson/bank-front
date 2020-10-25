@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,9 +11,10 @@ export class MenuComponent implements OnInit {
 
   public clicked: boolean = false;
   public username: string;
-  
+  @Output() public showNotification: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private _authenticationService: AuthenticationService) { }
+  constructor(private _authenticationService: AuthenticationService,
+    public _notificationService: NotificationService) { }
 
   ngOnInit(): void {
     this.username = this._authenticationService.getUser().username;
@@ -28,12 +30,12 @@ export class MenuComponent implements OnInit {
     return this._authenticationService.isAuthenticated()
   }
 
-  public onSignOut(): void {
-    this._authenticationService.signOut();
-  }
+  
 
   public random(max: number): number {
     return Math.floor((Math.random() * max));
   }
+
+  
 
 }
