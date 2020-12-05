@@ -1,0 +1,13 @@
+<mat-toolbar *ngIf="isAuthenticated()" class="scrollMenu">
+    <button mat-stroked-button *ngIf="!!username" mat-stroked-button (click)="showNotification.emit()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <button mat-stroked-button routerLinkActive="active" routerLink="dashboard">
+        {{'menu.dashboard' | translate}}
+    </button>
+    <button mat-stroked-button routerLinkActive="active" routerLink="charts">
+        {{'menu.charts' | translate}}
+    </button>
+    <span class="example-spacer"></span>
+    <small>0.1</small>
+</mat-toolbar>

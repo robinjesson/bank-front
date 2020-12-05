@@ -1,0 +1,46 @@
+.card {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding: 7px;
+    width: 24rem;
+    height: 12rem;
+    vertical-align: top;
+    display: inline-block;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    perspective: 1000px;
+    background-color: gray;
+    border-radius: 0 0 10px 0;
+}
+
+.settings {
+    color: white;
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+.settings:hover {
+    color: black;
+}
+
+.settings:focus {
+    outline: none;
+}
+
+.actions {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.tile-active {
+    background-color: red;
+}
+
+p {
+    font-size: x-large;
+    margin: 0;
+}

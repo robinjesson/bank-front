@@ -1,0 +1,8 @@
+<div matRipple class="card" [class.tile-active]="active" *ngIf="acc">
+    <p>{{acc.name}}</p>
+    <div>&euro; {{acc.total}}</div>
+    <span class="actions">
+                <button class="settings" (click)="onRefresh()"><i class="fas fa-sync"></i></button>
+                <button class="settings"><i class="fas fa-cog"></i></button>
+            </span>
+</div>

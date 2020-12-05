@@ -1,0 +1,42 @@
+<h3><b>{{account | uppercase}}</b> {{'writing-add.title' | translate}}</h3>
+
+<div class="grid">
+
+    <ng-container [formGroup]="writingForm">
+        <div class="input">
+            <label for="title">{{'writing-add.label'| translate}}</label>
+            <input type="text" id="title" formControlName="title" [attr.placeholder]="'writing-add.label' | translate">
+        </div>
+        <div class="input">
+            <label for="amount">{{'writing-add.amount'| translate}}</label>
+            <input type="number" id="amount" formControlName="amount" [attr.placeholder]="'writing-add.amount' | translate">
+        </div>
+        <div class="input">
+            <label for="date">{{'writing-add.date'| translate}}</label>
+            <input type="date" id="date" formControlName="date" [attr.placeholder]="'writing-add.date' | translate">
+        </div>
+        <div class="input">
+            <label for="periodUnit">{{'writing-add.periodicity'| translate}}</label>
+            <select formControlName="periodUnit" id="periodUnit" [attr.placeholder]="'writing-add.date' | translate">
+                <option [value]="EPeriodUnit.Once">{{'writing-add.once' | translate}}</option>
+                <option [value]="EPeriodUnit.Day">{{'writing-add.day' | translate}}</option>
+                <option [value]="EPeriodUnit.Week">{{'writing-add.week' | translate}}</option>
+                <option [value]="EPeriodUnit.Month">{{'writing-add.month' | translate}}</option>
+                <option [value]="EPeriodUnit.Year">{{'writing-add.year' | translate}}</option> 
+            </select>
+        </div>
+        <ng-container *ngIf="writingForm.value.periodUnit != EPeriodUnit.Once">
+
+            <div class="input">
+                <label for="end">{{'writing-add.end'| translate}}</label>
+                <input type="date" formControlName="end" id="end" [attr.placeholder]="'writing-add.end' | translate">
+            </div>
+            <div class="input">
+                <label for="periodic">{{'writing-add.periodicity'| translate}}</label>
+                <input type="number" formControlName="periodic" id="periodic" [attr.placeholder]="'writing-add.periodicity' | translate">
+            </div>
+        </ng-container>
+    </ng-container>
+
+
+</div>

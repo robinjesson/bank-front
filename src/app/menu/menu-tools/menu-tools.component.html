@@ -1,0 +1,30 @@
+<div class="tools-container">
+    <div class="tools">
+        <button mat-icon-button [routerLink]="[{ outlets: { drawer: ['notifications'] } }]" routerLinkActive="tools-active">
+            <i class="fas fa-bell"></i>
+        </button>
+        <button mat-icon-button [routerLink]="[{ outlets: { drawer: ['user'] } }]" routerLinkActive="tools-active">
+            <i class="fas fa-cogs"></i>
+        </button>
+        <button mat-icon-button [routerLink]="[{ outlets: { drawer: ['admin'] } }]" routerLinkActive="tools-active">
+            <i class="fas fa-user-shield"></i>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <i class="fas fa-language"></i>
+        </button>
+        <button mat-icon-button (click)="onSignOut()">
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
+</div>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="setLang('FR')">
+        <mat-icon><span class="flag-icon flag-icon-fr"></span></mat-icon>
+        <span>Français</span>
+    </button>
+    <button mat-menu-item (click)="setLang('EN')">
+        <mat-icon><span class="flag-icon flag-icon-gb"></span></mat-icon>
+        <span>Anglais</span>
+    </button>
+</mat-menu>
