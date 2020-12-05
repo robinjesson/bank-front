@@ -28,10 +28,6 @@ body {
     border: 1px solid black !important;
 }
 
-.cdk-overlay-pane {
-    width: 50%;
-}
-
 .mat-dialog-container {
     border-radius: 0 !important;
 }

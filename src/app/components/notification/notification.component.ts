@@ -8,6 +8,8 @@ import { NotificationService, TNotification } from 'src/app/services/notificatio
 })
 export class NotificationComponent implements OnInit {
   @Input() public notification: TNotification;
+  public isHover: boolean = false;
+  console = console;
   
   constructor(public _notificationService: NotificationService) { }
 

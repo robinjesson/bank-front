@@ -12,7 +12,9 @@
         </button>
     </mat-form-field>
 
-    <app-pass-code class="center" (back)="removeLastPass()" (nb)="addNumber($event)" (erase)="erasePass()"></app-pass-code>
+    <app-pass-code class="center" (back)="removeLastPass()" (nb)="addNumber($event)" (erase)="erasePass()">
+        <p>Pass code</p>
+    </app-pass-code>
 </form>
 <div class="right">
     <button mat-button (click)="goRegister.emit()">S'inscrire</button>

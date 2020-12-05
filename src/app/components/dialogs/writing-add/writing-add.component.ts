@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { EPeriodUnit } from 'src/app/utils/enums';
+import { TEntryRequest } from 'src/app/utils/types';
 
 @Component({
   selector: 'app-writing-add',
@@ -10,13 +10,14 @@ import { EPeriodUnit } from 'src/app/utils/enums';
 })
 export class WritingAddComponent implements OnInit{
 
+  @Input() public account: string;
   public writingForm: FormGroup;
   public noEnd: boolean = true;
   public EPeriodUnit: typeof EPeriodUnit = EPeriodUnit;
+  @Output() public cancel: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public ok: EventEmitter<TEntryRequest> = new EventEmitter<TEntryRequest>();
 
   constructor(
-    private _bottomSheetRef: MatDialogRef<WritingAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private _formBuilder: FormBuilder) {
     }
 

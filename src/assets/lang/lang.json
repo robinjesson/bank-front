@@ -12,9 +12,10 @@
         "writing-add.date": "Date",
         "writing-add.type": "Récurrence",
         "writing-add.once": "Une fois",
-        "writing-add.daily": "Quotidien",
-        "writing-add.monthly": "Mensuel",
-        "writing-add.yearly": "Annuel",
+        "writing-add.day": "Quotidien",
+        "writing-add.week": "Hebdomadaire",
+        "writing-add.month": "Mensuel",
+        "writing-add.year": "Annuel",
         "writing-add.end": "Fin de récurrence"
     },
     "en": {
@@ -30,9 +31,10 @@
         "writing-add.date": "Date",
         "writing-add.type": "Type",
         "writing-add.once": "Once",
-        "writing-add.daily": "Daily",
-        "writing-add.monthly": "Monthly",
-        "writing-add.yearly": "Yearly",
+        "writing-add.day": "Daily",
+        "writing-add.week": "Weekly",
+        "writing-add.month": "Monthly",
+        "writing-add.year": "Yearly",
         "writing-add.end": "End"
     }
 }

@@ -1,19 +1,29 @@
-<div>
+<button matRipple class="add" (click)="showForm = !showForm" type="button">
+    <i class="fas" [ngClass]="{'fa-plus': !showForm, 'fa-minus': showForm}"></i>
+</button>
+<ng-container *ngIf="!showForm">
     <input type="text" class="search" placeholder="Rechercher">
     <button class="erase" type="button"><i class="fas fa-times"></i></button>
-    <button (click)="onAddEntry()" type="button"><i class="fas fa-plus"></i></button>
-</div>
-<table>
-    <thead>
-        <th>Title</th>
-        <th>Date</th>
-        <th>Amount</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let entry of entries">
-            <td>{{entry.title}}</td>
-            <td>{{entry.date}}</td>
-            <td>{{entry.amount}}</td>
-        </tr>
-    </tbody>
-</table>
+</ng-container>
+<ng-container *ngIf="!showForm; else entryForm">
+    <app-date-selector [account]="account" (dateSelection)="getDateSelection($event)">
+    </app-date-selector>
+    <table>
+        <thead>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entry of entries">
+                <td>{{entry.title}}</td>
+                <td>{{entry.date}}</td>
+                <td>{{entry.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>
+
+<ng-template #entryForm>
+    <app-writing-add [account]="account.name" (cancel)="showForm = false"></app-writing-add>
+</ng-template>

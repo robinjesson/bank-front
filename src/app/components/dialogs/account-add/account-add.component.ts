@@ -14,12 +14,7 @@ export interface DialogData {
 export class AccountAddComponent {
 
 
-  constructor(
-    private _bottomSheetRef: MatBottomSheetRef<AccountAddComponent>,
-    @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {}
+  constructor() {}
 
-  onNoClick(): void {
-    this._bottomSheetRef.dismiss();
-  }
 
 }

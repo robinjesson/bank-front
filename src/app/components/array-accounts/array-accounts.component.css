@@ -1,23 +1,25 @@
 .tile {
-    width: 12rem;
-    height: 12rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
     vertical-align: top;
     display: inline-block;
     text-transform: uppercase;
-    padding: 1rem;
+    padding: 7px;
     background-color: gray;
     color: white;
     cursor: pointer;
 }
 
-.tile:hover:not(.tile-active) {
-    animation: redBg 0.5s;
-    background-color: red;
+.tile.rectangle {
+    width: 24rem;
+    height: 12rem;
 }
 
-.tile-active {
+.tile.square {
+    width: 12rem;
+    height: 12rem;
+}
+
+.tile:hover:not(.tile-active) {
+    animation: redBg 0.5s;
     background-color: red;
 }
 
@@ -28,4 +30,23 @@
     100% {
         background-color: red;
     }
+}
+
+.settings {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+}
+
+.settings:hover {
+    color: black;
+}
+
+.settings:focus {
+    outline: none;
 }

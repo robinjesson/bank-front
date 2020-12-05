@@ -1,0 +1,8 @@
+<ng-container *ngIf="monthYearMap">
+    <ul>
+        <ng-container *ngFor="let yr of monthYearMap | keys">
+            <li matRipple class="year" (click)="onYearClick(+yr)" [class.year-active]="+yr === year">{{yr}}</li>
+            <li matRipple class="date-btn" *ngFor="let mth of monthYearMap[selectedYear]" [class.month-active]="mth === month" (click)="emitSelection(+yr, mth)">{{mth | monthName | uppercase}}</li>
+        </ng-container>
+    </ul>
+</ng-container>

@@ -1,0 +1,33 @@
+.date-btn {
+    background-color: white;
+    padding: 10px;
+    color: black;
+}
+
+.year {
+    background-color: white;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+.date-btn:hover {
+    background-color: red;
+    color: white;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+ul>li {
+    display: inline-block;
+}
+
+.year-active,
+.month-active {
+    background-color: red;
+    color: white;
+}

@@ -31,6 +31,7 @@ export type TAccountResponse = {
     name: string;
     total: number;
     update: Date;
+    lastEntries: TEntryResponse[];
 };
 
 export type TAuthenticationResponse = {

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
-import { WeatherService } from 'src/app/services/weather.service';
 
 @Component({
   selector: 'app-notification-panel',
@@ -16,11 +15,9 @@ export class NotificationPanelComponent implements OnInit {
     icon: string
   };
 
-  constructor(public _notificationService: NotificationService,
-    public weatherService: WeatherService) { }
+  constructor(public _notificationService: NotificationService) { }
 
   async ngOnInit(): Promise<void> {
-    this.weather = await this.weatherService.getWeather('Strasbourg');
   }
 
 }

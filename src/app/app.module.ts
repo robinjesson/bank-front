@@ -48,6 +48,10 @@ import { NamePipe } from './pipes/name.pipe';
 import { TodayPipe } from './pipes/today.pipe';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { AuthInterceptor } from './utils/auth.interceptor';
+import { KeysPipe } from './pipes/keys.pipe';
+import { DateSelectorComponent } from './components/date-selector/date-selector.component';
+import { MonthNamePipe } from './pipes/month-name.pipe';
+import { TileComponent } from './components/tile/tile.component';
 
 
 
@@ -100,7 +104,11 @@ const materialImport = [
     WritingAddComponent,
     NotificationPanelComponent,
     TodayPipe,
-    MenuToolsComponent
+    MenuToolsComponent,
+    KeysPipe,
+    DateSelectorComponent,
+    MonthNamePipe,
+    TileComponent
   ],
   imports: [
     BrowserModule,

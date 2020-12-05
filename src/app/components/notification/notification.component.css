@@ -1,22 +1,25 @@
 .alert {
     padding: 20px;
-    background-color: snow;
-    color: gray;
+    background-color: whitesmoke;
     border-radius: 10px;
     margin: 10px;
 }
 
-.alert:hover {
-    background-color: whitesmoke;
+.color-red {
+    color: red !important;
 }
 
 .closebtn {
     margin-left: 15px;
-    color: snow;
+    color: whitesmoke;
     font-weight: bold;
     float: right;
     font-size: 22px;
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black !important;
 }

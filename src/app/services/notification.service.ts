@@ -25,7 +25,7 @@ export class NotificationService {
     this._snackBar.open(notif.text, 'Fermer', {
       verticalPosition: "top",
       horizontalPosition: "right",
-      duration: 5000,
+      duration: 60000,
       politeness:"off"
     });
   }

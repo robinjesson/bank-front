@@ -1,5 +1,5 @@
 <div class="text-center">
-
+    <ng-content></ng-content>
     <ng-container *ngFor="let nb of shuffled; let index = index">
         <button class="pass-btn" (click)="onClickNumber(nb)">{{nb}}</button>
         <br *ngIf="index == 3 || index == 7">

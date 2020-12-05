@@ -2,9 +2,10 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 import { AccountService } from 'src/app/services/account.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { TAccountResponse, TEntryResponse } from 'src/app/utils/types';
+import { TAccountResponse, TEntryRequest, TEntryResponse } from 'src/app/utils/types';
 import { DialogService } from 'src/app/services/dialog.service';
 import { WritingAddComponent } from '../dialogs/writing-add/writing-add.component';
+import { EntryService } from 'src/app/services/entry.service';
 
 @Component({
   selector: 'app-array-writings',
@@ -12,33 +13,70 @@ import { WritingAddComponent } from '../dialogs/writing-add/writing-add.componen
   styleUrls: ['./array-writings.component.css'],
 })
 export class ArrayWritingsComponent {
-
+  public showForm: boolean = false;
   public entries: TEntryResponse[];
   private _account: TAccountResponse;
+  public monthYearMap: {[year: number]: number[]};
+  public year: number = new Date().getFullYear();
+  public month: number = new Date().getMonth();
+
+  public getDateSelection(event: {year: number, month: number}) {
+    this.year = event.year;
+    this.month = event.month;
+    this.getEntries(this.account);
+  }
 
 
   @Input()
   public set account(account: TAccountResponse) {
-    if(account) {
+    this.getEntries(account);
+  }
+
+  private getEntries(account: TAccountResponse) {
+    if (account) {
       this._account = account;
-      this._accountService.getAccountWritings(account.id).subscribe(
-        (data) => this.entries = data,
-        (err: HttpErrorResponse) => this._toastService.show({text: err.message})
+      this._accountService.getAccountWritings(account.id, this.year, this.month + 1).subscribe(
+        (data) => {
+          this.entries = data;
+          this.sortEntries();
+        },
+        (err: HttpErrorResponse) => this._toastService.show({ text: err.message })
       );
     }
-    
+  }
+
+  public get account(): TAccountResponse {
+    return this._account;
   }
 
   constructor(
-    private _accountService: AccountService, 
+    private _accountService: AccountService,
+    private _entryService: EntryService, 
     private _toastService: NotificationService,
     private _dialogService: DialogService) { }
 
+  private sortEntries() {
+    this.entries.sort((a, b) => a.date < b.date ? 1 : (a.date > b.date ? -1 : 0));
+  }
+
   public async onAddEntry() {
-    await this._dialogService.open(WritingAddComponent, {
+    const res: TEntryRequest = await this._dialogService.open(WritingAddComponent, {
       account: this._account.name
     });
+    res.accountId = this._account.id;
+
+    this._entryService.addEntry(res).subscribe(
+      (entry: TEntryResponse) => {
+        this._toastService.show({text: 'Ajouté'}, false);
+        this._account.total -= entry.amount;
+        this.entries.push(entry);
+        this.sortEntries();
+      },
+      (err: HttpErrorResponse) => this._toastService.show({text: err.message})
+    )
   }
+
+
 
 
 }
