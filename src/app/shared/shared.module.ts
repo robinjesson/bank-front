@@ -26,10 +26,8 @@ import { ColorDuetDirective } from './directives/color-duet.directive';
 import { WritingColorDirective } from './directives/writing-color.directive';
 import { RouterModule } from '@angular/router';
 import { KeysPipe } from './pipes/keys.pipe';
-import { MonthNamePipe } from './pipes/month-name.pipe';
 import { NamePipe } from './pipes/name.pipe';
 import { TodayPipe } from './pipes/today.pipe';
-import { TranslatePipe } from './pipes/translate.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -37,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import { MessageBoxDialogComponent } from './dialog/message-box-dialog/message-box-dialog.component';
 import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 const materialImport = [
   MatGridListModule,
@@ -67,10 +66,8 @@ const materialImport = [
     ColorDuetDirective,
     WritingColorDirective,
     KeysPipe,
-    MonthNamePipe,
     NamePipe,
     TodayPipe,
-    TranslatePipe,
     MessageBoxDialogComponent,
     CustomDialogComponent
   ],
@@ -87,7 +84,8 @@ const materialImport = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ...materialImport
+    ...materialImport,
+    TranslateModule
   ],
   exports: [
     NotificationComponent,
@@ -97,10 +95,8 @@ const materialImport = [
     FormsModule,
     ReactiveFormsModule,
     KeysPipe,
-    MonthNamePipe,
     NamePipe,
     TodayPipe,
-    TranslatePipe,
 
     BrowserModule,
     AppRoutingModule,
@@ -108,7 +104,9 @@ const materialImport = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ...materialImport
+    ...materialImport,
+    TranslateModule
   ]
 })
 export class SharedModule { }
+

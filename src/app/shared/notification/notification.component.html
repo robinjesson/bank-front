@@ -1,5 +1,5 @@
 <div class="alert" (mouseenter)="isHover = true" (mouseleave)="isHover = false">
     <span class="closebtn" (click)="_notificationService.remove(notification)" [class.color-red]="isHover">&times;</span>
-    <p>{{notification.text | translate}}</p>
+    <p>{{notification.text }}</p>
     <small *ngIf="notification.date">{{notification.date | date: 'dd MMMM yyyy hh:mm'}}</small>
 </div>

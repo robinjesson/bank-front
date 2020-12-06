@@ -29,7 +29,7 @@ export class TodayPipe implements PipeTransform {
         numberExtension = 'rd'
       }
 
-      return `${enDays[today.getDay()]}, the ${day}${numberExtension} of ${enMonths[today.getMonth()]} ${today.getFullYear()}.`;
+      return `${enDays[today.getDay()]}, the ${day}${numberExtension} of ${enMonths[today.getMonth()]} ${today.getFullYear()}`;
     }
   }
 

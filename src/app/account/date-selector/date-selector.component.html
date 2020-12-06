@@ -2,7 +2,7 @@
     <ul>
         <ng-container *ngFor="let yr of monthYearMap | keys">
             <li matRipple (click)="onYearClick(+yr)" [class.date-btn-active]="+yr === year">{{yr}}</li>
-            <li matRipple *ngFor="let mth of monthYearMap[selectedYear]" [class.date-btn-active]="mth === month" (click)="emitSelection(+yr, mth)">{{mth | monthName | uppercase}}</li>
+            <li matRipple *ngFor="let mth of monthYearMap[selectedYear]" [class.date-btn-active]="mth === month" (click)="emitSelection(+yr, mth)">{{('month.'+mth) | translate | uppercase}}</li>
         </ng-container>
     </ul>
 </ng-container>

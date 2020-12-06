@@ -1,0 +1,44 @@
+{
+    "menu": {
+        "hello": "Bonjour",
+        "dashboard": "Tableau de bord",
+        "administrator": "Administrateur"
+    },
+    "private": {
+        "noNotification": "Aucune notification"
+    },
+    "button": {
+        "ok": "Ok",
+        "cancel": "Annuler"
+    },
+    "writing-add": {
+        "title": "Ajouter une écriture",
+        "label": "Intitulé",
+        "amount": "Montant",
+        "date": "Date",
+        "type": "Récurrence",
+        "once": "Une fois",
+        "day": "Quotidien",
+        "week": "Hebdomadaire",
+        "month": "Mensuel",
+        "year": "Annuel",
+        "end": "Fin de récurrence",
+        "periodicity": "Récurrence"
+    },
+    "month": {
+        "0": "janvier",
+        "1": "février",
+        "2": "mars",
+        "3": "avril",
+        "4": "mai",
+        "5": "juin",
+        "6": "juillet",
+        "7": "août",
+        "8": "septembre",
+        "9": "octobre",
+        "10": "novembre",
+        "11": "décembre"
+    }
+
+
+}

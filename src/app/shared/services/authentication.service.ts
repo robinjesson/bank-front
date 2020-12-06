@@ -6,6 +6,7 @@ import { API_AUTH } from '../../types/consts';
 import { take } from 'rxjs/operators';
 import { DialogService } from './dialog.service';
 import { EDialogAction } from 'src/app/types/enums';
+import { TranslateService } from '@ngx-translate/core';
 
 const TOKEN_KEY : string = 'auth-token';
 const USER_KEY : string  = 'auth-user';
@@ -17,7 +18,7 @@ const LANG_KEY : string  = 'lang';
 export class AuthenticationService {
 
   public constructor(private _httpClient: HttpClient, private _router: Router,
-    private _dialogService: DialogService) {}
+    private _dialogService: DialogService, private _translate: TranslateService) {}
 
   public authenticate(username: string, password: string) : Observable<any> {
     return this._httpClient.post(API_AUTH, {
@@ -67,6 +68,7 @@ export class AuthenticationService {
   }
 
   public saveLang(lang : string): void {
+    this._translate.use(lang.toLowerCase());
     window.sessionStorage.removeItem(LANG_KEY);
     window.sessionStorage.setItem(LANG_KEY, JSON.stringify(lang));
   }
