@@ -1,9 +1,6 @@
 <mat-drawer-container autosize [hasBackdrop]="false" style="height: 100vh;">
     <mat-drawer #drawer mode="side">
         <div style="text-align: right; margin: 5px;">
-            <button mat-icon-button (click)="drawer.toggle()">
-                <i class="fas fa-times"></i>
-            </button>
         </div>
         <app-menu-tools></app-menu-tools>
         <router-outlet name="drawer"></router-outlet>

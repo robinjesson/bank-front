@@ -1,24 +1,17 @@
-.input>input,
-.input>select {
-    background-color: white;
-    border: none;
-    padding: 10px;
-    margin-right: 10px;
-    height: 36px;
+.example-full-width {
+    width: 100%;
+    display: block;
+    margin: auto;
 }
 
-.input>input:focus,
-.input>select:focus {
-    outline: none;
+h3 {
+    text-align: center;
 }
 
-.input>label {
-    height: 40px;
-    padding: 10px;
-    background-color: red;
-    color: white;
+.actions {
+    text-align: right;
 }
 
-.input {
-    padding: 3px;
+button {
+    margin: 1px;
 }

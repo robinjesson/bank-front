@@ -9,3 +9,7 @@ export enum EPeriodUnit {
 export enum EDialogAction {
     OK, Cancel, Yes, No
 }
+
+export enum EFormType {
+    Entry, Account, PeriodicEntry
+}

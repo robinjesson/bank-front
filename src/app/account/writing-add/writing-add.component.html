@@ -1,42 +1,43 @@
-<h3><b>{{account | uppercase}}</b> {{'writing-add.title' | translate}}</h3>
+<h3><b>{{data.account | uppercase}}</b> {{'writing-add.title' | translate}}</h3>
 
-<div class="grid">
 
-    <ng-container [formGroup]="writingForm">
-        <div class="input">
-            <label for="title">{{'writing-add.label'| translate}}</label>
-            <input type="text" id="title" formControlName="title" [attr.placeholder]="'writing-add.label' | translate">
-        </div>
-        <div class="input">
-            <label for="amount">{{'writing-add.amount'| translate}}</label>
-            <input type="number" id="amount" formControlName="amount" [attr.placeholder]="'writing-add.amount' | translate">
-        </div>
-        <div class="input">
-            <label for="date">{{'writing-add.date'| translate}}</label>
-            <input type="date" id="date" formControlName="date" [attr.placeholder]="'writing-add.date' | translate">
-        </div>
-        <div class="input">
-            <label for="periodUnit">{{'writing-add.periodicity'| translate}}</label>
-            <select formControlName="periodUnit" id="periodUnit" [attr.placeholder]="'writing-add.date' | translate">
-                <option [value]="EPeriodUnit.Once">{{'writing-add.once' | translate}}</option>
-                <option [value]="EPeriodUnit.Day">{{'writing-add.day' | translate}}</option>
-                <option [value]="EPeriodUnit.Week">{{'writing-add.week' | translate}}</option>
-                <option [value]="EPeriodUnit.Month">{{'writing-add.month' | translate}}</option>
-                <option [value]="EPeriodUnit.Year">{{'writing-add.year' | translate}}</option> 
-            </select>
-        </div>
-        <ng-container *ngIf="writingForm.value.periodUnit != EPeriodUnit.Once">
-
-            <div class="input">
-                <label for="end">{{'writing-add.end'| translate}}</label>
-                <input type="date" formControlName="end" id="end" [attr.placeholder]="'writing-add.end' | translate">
-            </div>
-            <div class="input">
-                <label for="periodic">{{'writing-add.periodicity'| translate}}</label>
-                <input type="number" formControlName="periodic" id="periodic" [attr.placeholder]="'writing-add.periodicity' | translate">
-            </div>
-        </ng-container>
+<form [formGroup]="writingForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'writing-add.label'| translate}}</mat-label>
+        <input matInput type="text" formControlName="title" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'writing-add.amount'| translate}}</mat-label>
+        <input matInput type="number" formControlName="amount">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'writing-add.amount'| translate}}</mat-label>
+        <input matInput type="date" formControlName="date">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'writing-add.periodicity'| translate}}</mat-label>
+        <mat-select formControlName="periodUnit">
+            <mat-option [value]="EPeriodUnit.Once">{{'writing-add.once' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Day">{{'writing-add.day' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Week">{{'writing-add.week' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Month">{{'writing-add.month' | translate}}</mat-option>
+            <mat-option [value]="EPeriodUnit.Year">{{'writing-add.year' | translate}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <ng-container *ngIf="writingForm.value.periodUnit != EPeriodUnit.Once">
+        <mat-form-field class="example-full-width">
+            <mat-label>{{'writing-add.amount'| translate}}</mat-label>
+            <input matInput type="date" formControlName="end">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>{{'writing-add.amount'| translate}}</mat-label>
+            <input matInput type="number" formControlName="periodic">
+        </mat-form-field>
     </ng-container>
 
-
-</div>
+    <div class="actions">
+        <button mat-stroked-button mat-dialog-close (click)="onSave()"><i class="fas fa-save"></i></button>
+        <button mat-stroked-button color="warn" mat-dialog-close><i class="fas fa-times"></i></button>
+        <button mat-stroked-button color="green" mat-dialog-close [disabled]="writingForm.invalid"><i class="fas fa-check"></i></button>
+    </div>
+</form>

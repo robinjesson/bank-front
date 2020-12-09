@@ -24,5 +24,22 @@
         "9": "october",
         "10": "november",
         "11": "december"
+    },
+    "messageBox": {
+        "logout": "You will be logged out of the application. Do you want to proceed?"
+    },
+    "writing-add": {
+        "title": "Add an entry",
+        "label": "Label",
+        "amount": "Amount",
+        "date": "Date",
+        "type": "Periodicity",
+        "once": "Once",
+        "day": "Daily",
+        "week": "Weekly",
+        "month": "Monthly",
+        "year": "Yearly",
+        "end": "End of periodicity",
+        "periodicity": "Periodicity"
     }
 }

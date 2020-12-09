@@ -38,6 +38,9 @@
         "9": "octobre",
         "10": "novembre",
         "11": "décembre"
+    },
+    "messageBox": {
+        "logout": "Vous allez être déconnecté de l'application. Voulez-vous continuer ?"
     }
 
 

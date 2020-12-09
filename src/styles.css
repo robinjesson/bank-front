@@ -29,5 +29,9 @@ body {
 }
 
 .mat-dialog-container {
-    border-radius: 0 !important;
+    border-radius: 0 0 10px 0 !important;
+}
+
+.cdk-overlay-pane {
+    width: 50%;
 }

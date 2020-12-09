@@ -3,21 +3,18 @@
     width: 40px;
     height: 40px;
     border: none;
-    margin: 1px;
     z-index: 90;
+    background-color: grey;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
 }
 
 .pass-btn:hover {
-    background-color: gray;
-    color: white;
-}
-
-.pass-btn:active {
-    background-color: gray;
-    color: white;
-    width: 36px;
-    height: 36px;
-    margin: 3px;
+    color: red;
+    background-color: transparent;
+    color: grey;
+    border: 1px solid grey;
 }
 
 .pass-btn:focus {
@@ -26,4 +23,8 @@
 
 .correct-btn {
     margin-top: 3px;
+}
+
+.pass-btn:last-child {
+    border-radius: 0 0 10px 0;
 }

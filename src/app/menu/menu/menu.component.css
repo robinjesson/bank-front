@@ -1,38 +1,53 @@
-ul li {
-    display: inline;
-    padding: 20px;
-    margin-left: 10px;
-    border-radius: 1000px;
+.menu-btn {
+    height: 3em;
+    min-width: 3em;
+    border: 0;
+    padding: 10px;
+    font-size: larger;
 }
 
-.li:hover {
-    transition: 0.9s;
-    background-color: red;
+.menu-btn:focus {
+    outline: none;
 }
 
-.rotate180 {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-    -webkit-transition: all linear 200ms;
-    transition: all linear 300ms;
+.menu-btn-active {
+    color: red;
 }
 
-.rotate-back {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: all linear 200ms;
-    transition: all linear 300ms;
+.menu-btn:hover {
+    color: red;
 }
 
-button {
-    margin-right: 10px;
+.menu-btn:last-child {
+    border-radius: 0 0 10px 0;
 }
 
-.scrollmenu {
-    overflow: auto;
-    white-space: nowrap;
+.menu-btn.tool {
+    background-color: gainsboro;
 }
 
-.example-spacer {
-    flex: 1 1 auto;
+.menu-btn.tab {
+    background-color: rgba(240, 240, 240, 0.9);
+}
+
+.menu-btn.tab:not(:last-child) {
+    box-shadow: 5px 0 5px -5px black;
+}
+
+.menu-btn.tab>.close-tab {
+    padding-left: .5em;
+    color: unset;
+}
+
+.menu-btn.tab>.close-tab:hover {
+    color: unset;
+    font-weight: bolder;
+}
+
+.tabs {
+    width: 300px
+}
+
+.shadow {
+    box-shadow: 5px 0 5px -5px black;
 }

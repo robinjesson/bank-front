@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { EPeriodUnit } from 'src/app/types/enums';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TabsService } from 'src/app/shared/services/tabs.service';
+import { EFormType, EPeriodUnit } from 'src/app/types/enums';
 import { TEntryRequest } from 'src/app/types/model';
 
 @Component({
@@ -14,11 +16,13 @@ export class WritingAddComponent implements OnInit{
   public writingForm: FormGroup;
   public noEnd: boolean = true;
   public EPeriodUnit: typeof EPeriodUnit = EPeriodUnit;
-  @Output() public cancel: EventEmitter<void> = new EventEmitter<void>();
-  @Output() public ok: EventEmitter<TEntryRequest> = new EventEmitter<TEntryRequest>();
 
   constructor(
-    private _formBuilder: FormBuilder) {
+    private _formBuilder: FormBuilder,
+    private _dialogRef: MatDialogRef<WritingAddComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _tabsService: TabsService) {
+      this._dialogRef.updateSize('50vh');
     }
 
   ngOnInit(): void {
@@ -37,6 +41,10 @@ export class WritingAddComponent implements OnInit{
       period: '',
       accountId: ''
     });
+  }
+
+  public onSave() {
+    this._tabsService.addTab('writing-add.title', WritingAddComponent, this.writingForm.value);
   }
   
 

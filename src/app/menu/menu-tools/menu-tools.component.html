@@ -1,18 +1,18 @@
 <div class="tools-container">
     <div class="tools">
-        <button mat-icon-button [routerLink]="[{ outlets: { drawer: ['notifications'] } }]" routerLinkActive="tools-active">
+        <button [routerLink]="[{ outlets: { drawer: ['notifications'] } }]" routerLinkActive="tools-active">
             <i class="fas fa-bell"></i>
         </button>
-        <button mat-icon-button [routerLink]="[{ outlets: { drawer: ['user'] } }]" routerLinkActive="tools-active">
-            <i class="fas fa-cogs"></i>
+        <button [routerLink]="[{ outlets: { drawer: ['user'] } }]" routerLinkActive="tools-active">
+            <i class="fas fa-user"></i>
         </button>
-        <button mat-icon-button [routerLink]="[{ outlets: { drawer: ['admin'] } }]" routerLinkActive="tools-active">
-            <i class="fas fa-user-shield"></i>
+        <button [routerLink]="[{ outlets: { drawer: ['admin'] } }]" routerLinkActive="tools-active">
+            <i class="fas fa-shield-alt"></i>
         </button>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
+        <button [matMenuTriggerFor]="menu">
             <i class="fas fa-language"></i>
         </button>
-        <button mat-icon-button (click)="onSignOut()">
+        <button (click)="onSignOut()">
             <i class="fas fa-power-off"></i>
         </button>
     </div>

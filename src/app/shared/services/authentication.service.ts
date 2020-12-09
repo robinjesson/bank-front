@@ -31,7 +31,7 @@ export class AuthenticationService {
    * Logs out the user
    */
   public async signOut() : Promise<void> {
-    switch(await this._dialogService.openMessageBox('ddz')) {
+    switch(await this._dialogService.openMessageBox('messageBox.logout')) {
       case EDialogAction.OK:
         window.sessionStorage.clear();
         this._router.navigate(['/signin']);

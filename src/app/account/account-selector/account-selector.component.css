@@ -16,6 +16,7 @@
 .tile.square {
     width: 12rem;
     height: 12rem;
+    border-radius: 0 0 10px 0;
 }
 
 .tile:hover:not(.tile-active) {

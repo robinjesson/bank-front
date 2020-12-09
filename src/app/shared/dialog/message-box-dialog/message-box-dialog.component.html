@@ -1,4 +1,7 @@
-<footer style="text-align: right;">
-    <button mat-button [mat-dialog-close]="EDialogAction.Cancel">'button.cancel'</button>
-    <button mat-stroked-button color="primary" [mat-dialog-close]="EDialogAction.OK">{{'2020-11-21' | date}}</button>
-</footer>
+<div class="message">
+    {{data.message | translate}}
+</div>
+<div style="text-align: right;">
+    <button mat-button [mat-dialog-close]="EDialogAction.Cancel">{{'button.cancel'|translate}}</button>
+    <button mat-button color="primary" [mat-dialog-close]="EDialogAction.OK" cdkFocusInitial>{{'button.ok'|translate}}</button>
+</div>
