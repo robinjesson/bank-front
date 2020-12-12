@@ -1,4 +1,4 @@
-<h3><b>{{data.account | uppercase}}</b> {{'writing-add.title' | translate}}</h3>
+<h3><b>{{data.account.name | uppercase}}</b> {{'writing-add.title' | translate}}</h3>
 
 
 <form [formGroup]="writingForm">
@@ -38,6 +38,6 @@
     <div class="actions">
         <button mat-stroked-button mat-dialog-close (click)="onSave()"><i class="fas fa-save"></i></button>
         <button mat-stroked-button color="warn" mat-dialog-close><i class="fas fa-times"></i></button>
-        <button mat-stroked-button color="green" mat-dialog-close [disabled]="writingForm.invalid"><i class="fas fa-check"></i></button>
+        <button mat-stroked-button color="green" mat-dialog-close [disabled]="writingForm.invalid" (click)="onConfirm()"><i class="fas fa-check"></i></button>
     </div>
 </form>

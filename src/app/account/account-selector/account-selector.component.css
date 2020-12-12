@@ -6,6 +6,7 @@
     background-color: gray;
     color: white;
     cursor: pointer;
+    transition: .5s;
 }
 
 .tile.rectangle {
@@ -20,17 +21,7 @@
 }
 
 .tile:hover:not(.tile-active) {
-    animation: redBg 0.5s;
     background-color: red;
-}
-
-@keyframes redBg {
-    0% {
-        background-color: gray;
-    }
-    100% {
-        background-color: red;
-    }
 }
 
 .settings {

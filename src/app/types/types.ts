@@ -1,6 +1,9 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { EDialogAction, EFormType } from './enums';
 
+
+export type TId = number;
+
 export type TDialogResponse<T> = {
     action: EDialogAction,
     value?: T
@@ -8,7 +11,7 @@ export type TDialogResponse<T> = {
 
 export type TTab<T> = {
     name: string;
-    creation: Date;
+    id: TId;
     content?: T;
     component: ComponentType<unknown>;
 }

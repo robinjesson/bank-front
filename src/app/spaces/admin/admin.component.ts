@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IdService } from 'src/app/shared/services/id.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  public idToRemove: number;
+  constructor(
+    private idService: IdService
+  ) { }
 
   ngOnInit(): void {
   }
+
+  onNew() {
+    this.idService.nextId
+  }
+
+  onRemove() {
+    this.idService.removeId(this.idToRemove);
+  }
+
 
 }

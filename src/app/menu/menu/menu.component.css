@@ -4,6 +4,7 @@
     border: 0;
     padding: 10px;
     font-size: larger;
+    transition: .5s;
 }
 
 .menu-btn:focus {

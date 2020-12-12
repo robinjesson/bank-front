@@ -63,19 +63,8 @@ export class ArrayWritingsComponent {
 
   public async onAddEntry() {
     const res: TEntryRequest = await this._dialogService.open(WritingAddComponent, {
-      account: this._account.name
+      account: this._account
     });
-    res.accountId = this._account.id;
-
-    this._entryService.addEntry(res).subscribe(
-      (entry: TEntryResponse) => {
-        this._toastService.show({text: 'Ajouté'}, false);
-        this._account.total -= entry.amount;
-        this.entries.push(entry);
-        this.sortEntries();
-      },
-      (err: HttpErrorResponse) => this._toastService.show({text: err.message})
-    )
   }
 
 

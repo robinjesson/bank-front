@@ -12,6 +12,7 @@
     perspective: 1000px;
     background-color: gray;
     border-radius: 0 0 10px 0;
+    transition: .5s;
 }
 
 .settings {
@@ -36,7 +37,8 @@
     bottom: 0;
 }
 
-.tile-active {
+.tile-active,
+.card:hover {
     background-color: red;
 }
 
