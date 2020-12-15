@@ -3,7 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-pass-code',
   templateUrl: './pass-code.component.html',
-  styleUrls: ['./pass-code.component.css']
+  styleUrls: ['./pass-code.component.less']
 })
 export class PassCodeComponent implements OnInit {
 

@@ -11,7 +11,7 @@ import { ArrayWritingsComponent } from '../array-writings/array-writings.compone
 @Component({
   selector: 'app-account-selector',
   templateUrl: './account-selector.component.html',
-  styleUrls: ['./account-selector.component.css']
+  styleUrls: ['./account-selector.component.less']
 })
 export class AccountSelectorComponent implements OnInit {
   @ViewChild(MatTabGroup) tabGroup: MatTabGroup;

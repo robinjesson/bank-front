@@ -4,7 +4,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 @Component({
   selector: 'app-menu-tools',
   templateUrl: './menu-tools.component.html',
-  styleUrls: ['./menu-tools.component.css']
+  styleUrls: ['./menu-tools.component.less']
 })
 export class MenuToolsComponent implements OnInit {
 

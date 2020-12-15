@@ -7,7 +7,7 @@ import { TAccountResponse } from 'src/app/types/model';
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
-  styleUrls: ['./tile.component.css']
+  styleUrls: ['./tile.component.less']
 })
 export class TileComponent implements OnInit {
 

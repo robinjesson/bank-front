@@ -1,5 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { EntryService } from 'src/app/shared/services/entry.service';
@@ -12,15 +15,19 @@ import { WritingAddComponent } from '../writing-add/writing-add.component';
 @Component({
   selector: 'app-array-writings',
   templateUrl: './array-writings.component.html',
-  styleUrls: ['./array-writings.component.css'],
+  styleUrls: ['./array-writings.component.less'],
 })
-export class ArrayWritingsComponent {
+export class ArrayWritingsComponent implements AfterViewInit{
   public showForm: boolean = false;
   public entries: TEntryResponse[];
   private _account: TAccountResponse;
   public monthYearMap: {[year: number]: number[]};
   public year: number = new Date().getFullYear();
   public month: number = new Date().getMonth();
+
+  displayedColumns: string[] = ['title', 'date', 'amount'];
+  dataSource: MatTableDataSource<TEntryResponse>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   public getDateSelection(event: {year: number, month: number}) {
     this.year = event.year;
@@ -41,10 +48,15 @@ export class ArrayWritingsComponent {
         (data) => {
           this.entries = data;
           this.sortEntries();
+          this.dataSource = new MatTableDataSource(this.entries);
         },
         (err: HttpErrorResponse) => this._toastService.show({ text: err.message })
       );
     }
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   public get account(): TAccountResponse {
@@ -62,9 +74,28 @@ export class ArrayWritingsComponent {
   }
 
   public async onAddEntry() {
-    const res: TEntryRequest = await this._dialogService.open(WritingAddComponent, {
+    const req: TEntryRequest = await this._dialogService.open(WritingAddComponent, {
       account: this._account
     });
+    req.accountId = this._account.id;
+    this._entryService.addEntry(req).subscribe(
+      (entry: TEntryResponse) => {
+        this._toastService.show({text: 'Ajouté'}, false);
+        this._account.total -= entry.amount;
+        this.entries.push(entry);
+        this.sortEntries();
+      },
+      (err: HttpErrorResponse) => this._toastService.show({text: err.message})
+    )
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 

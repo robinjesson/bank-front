@@ -36,6 +36,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MessageBoxDialogComponent } from './dialog/message-box-dialog/message-box-dialog.component';
 import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormatDatePipe } from './pipes/format-date.pipe';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const materialImport = [
   MatGridListModule,
@@ -56,7 +59,9 @@ const materialImport = [
   MatSidenavModule,
   MatBadgeModule,
   MatDatepickerModule,
-  MatRippleModule
+  MatRippleModule,
+  MatPaginatorModule,
+  MatSortModule
 ]
 
 @NgModule({
@@ -69,7 +74,8 @@ const materialImport = [
     NamePipe,
     TodayPipe,
     MessageBoxDialogComponent,
-    CustomDialogComponent
+    CustomDialogComponent,
+    FormatDatePipe
   ],
   imports: [
     RouterModule,
@@ -105,7 +111,9 @@ const materialImport = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ...materialImport,
-    TranslateModule
+    TranslateModule,
+
+    FormatDatePipe
   ]
 })
 export class SharedModule { }

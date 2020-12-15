@@ -4,7 +4,7 @@ import { IdService } from 'src/app/shared/services/id.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.less']
 })
 export class AdminComponent implements OnInit {
 

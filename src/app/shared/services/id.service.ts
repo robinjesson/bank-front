@@ -20,7 +20,7 @@ export class IdService {
       return id;
     }
     else {
-      const id: TId = this.emittedId.length;
+      const id: TId = this.emittedId.length + 1;
       this.emittedId.push(id);
       this.emittedId = this.emittedId.sort((a,b) => a-b);
       return id;

@@ -12,7 +12,7 @@ import { TAccountResponse, TEntryRequest, TEntryResponse } from 'src/app/types/m
 @Component({
   selector: 'app-writing-add',
   templateUrl: './writing-add.component.html',
-  styleUrls: ['./writing-add.component.css']
+  styleUrls: ['./writing-add.component.less']
 })
 export class WritingAddComponent extends EditorDialog implements OnInit{
   public writingForm: FormGroup;
@@ -36,6 +36,18 @@ export class WritingAddComponent extends EditorDialog implements OnInit{
 
   private initForm(): void {
     const today: Date = new Date();
+   if(this.data.idTab) {
+    this.writingForm = this._formBuilder.group({
+      title: this.data.form.title ? this.data.form.title : '',
+      amount: new FormControl(this.data.form.amount ? this.data.form.amount : ''),
+      date: new FormControl(`${today.getFullYear()}-${today.getMonth() < 10 ? '0' : ''}${today.getMonth()}-${today.getDate()}`),
+      end: this.data.form.end ? this.data.form.end : '',
+      periodUnit: new FormControl(this.data.form.periodUnit ? this.data.form.periodUnit : EPeriodUnit.Once),
+      period: this.data.form.period ? this.data.form.period : '',
+      accountId: this.data.form.accountId ? this.data.form.accountId : ''
+    });
+   }
+   else {
     this.writingForm = this._formBuilder.group({
       title: '',
       amount: '',
@@ -45,16 +57,11 @@ export class WritingAddComponent extends EditorDialog implements OnInit{
       period: '',
       accountId: ''
     });
+   }
   }
 
   public onSave() {
-    console.log()
-    if(this.data.idTab) {
-      super.onSave('writing-add.title', WritingAddComponent, this.data.idTab);
-    }
-    else {
-      super.onSave('writing-add.title', WritingAddComponent);
-    }
+    super.onSave('writing-add.title', WritingAddComponent, this.data.idTab);
   }
 
   protected createSave(): Object {
@@ -65,14 +72,9 @@ export class WritingAddComponent extends EditorDialog implements OnInit{
   }
 
   public onConfirm(): void {
+
     let req: TEntryRequest = this.writingForm.value;
-    req.accountId = this.data.account.id;
-    this._entryService.addEntry(req).subscribe(
-      (entry: TEntryResponse) => {
-        this._toastService.show({text: 'Ajouté'}, false);
-      },
-      (err: HttpErrorResponse) => this._toastService.show({text: err.message})
-    )
+    
   }
   
 

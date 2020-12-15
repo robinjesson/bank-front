@@ -5,7 +5,7 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 @Component({
   selector: 'app-notification-panel',
   templateUrl: './notification-panel.component.html',
-  styleUrls: ['./notification-panel.component.css']
+  styleUrls: ['./notification-panel.component.less']
 })
 export class NotificationPanelComponent implements OnInit {
 

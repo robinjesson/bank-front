@@ -8,7 +8,7 @@ import { TEntryResponse } from 'src/app/types/model';
 @Component({
   selector: 'app-date-selector',
   templateUrl: './date-selector.component.html',
-  styleUrls: ['./date-selector.component.css']
+  styleUrls: ['./date-selector.component.less']
 })
 export class DateSelectorComponent {
 

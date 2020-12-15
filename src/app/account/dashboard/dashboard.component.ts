@@ -10,7 +10,7 @@ import { TAccountResponse } from 'src/app/types/model';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.less']
 })
 export class DashboardComponent implements OnInit {
 

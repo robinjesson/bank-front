@@ -6,7 +6,7 @@ import { EDialogAction } from 'src/app/types/enums';
 @Component({
   selector: 'app-message-box-dialog',
   templateUrl: './message-box-dialog.component.html',
-  styleUrls: ['./message-box-dialog.component.css']
+  styleUrls: ['./message-box-dialog.component.less']
 })
 export class MessageBoxDialogComponent implements OnInit {
   EDialogAction = EDialogAction;
