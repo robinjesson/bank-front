@@ -32,16 +32,25 @@ export class AuthenticationService {
    * Logs out the user
    */
   public async signOut() : Promise<void> {
-    /*switch(await this._dialogService.openMessageBox('messageBox.logout')) {
+    // switch(await this._dialogService.openMessageBox('messageBox.logout')) {
+    //   case EDialogAction.OK:
+    //     window.sessionStorage.clear();
+    //     this._router.navigate(['/signin']);
+    //     break;
+    //   default:
+    //     break;
+    // }
+
+    
+
+    switch(await this._feedService.show({text: 'messageBox.logout', showAction: true})) {
       case EDialogAction.OK:
         window.sessionStorage.clear();
         this._router.navigate(['/signin']);
         break;
       default:
         break;
-    }*/
-
-    this._feedService.show({text: 'messageBox.logout', showAction: true})
+    }
   }
 
   /**

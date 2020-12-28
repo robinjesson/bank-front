@@ -1,10 +1,10 @@
 <div class="n-container">
     <button class="close" (click)="closeContainer()"><i class="fas fa-times"></i></button>
 
-    <div style="height: 100%; overflow: scroll; width: 50%; margin: auto;">
-        <div *ngFor="let date of notificationService.notifications | keys">
-            {{date | date}}
-            <app-notification *ngFor="let n of notificationService.notifications[date]" [notification]="n"></app-notification>
+    <div *ngIf="notifications" style="height: 100%; overflow: scroll; width: 50%; margin: auto;">
+        <div *ngFor="let date of notifications | keys">
+            <h1 class="date">{{date | date}}</h1>
+            <app-notification *ngFor="let n of notifications[date]" [notification]="n"></app-notification>
         </div>
     </div>
 </div>

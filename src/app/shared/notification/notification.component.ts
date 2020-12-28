@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { CNotification } from 'src/app/types/classes';
 import { EDialogAction } from 'src/app/types/enums';
-import { TNotification } from 'src/app/types/types';
 import { NotificationService } from '../../notification/services/notification.service';
 
 @Component({
@@ -8,16 +8,11 @@ import { NotificationService } from '../../notification/services/notification.se
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.less']
 })
-export class NotificationComponent implements OnInit {
+export class NotificationComponent  {
   EDialogAction = EDialogAction;
-  @Input() public notification: TNotification;
-  @Output() public action = new EventEmitter<EDialogAction>();
+  @Input() public notification: CNotification;
   public isHover: boolean = false;
-  console = console;
   
   constructor(public _notificationService: NotificationService) { }
-
-  ngOnInit(): void {
-  }
 
 }

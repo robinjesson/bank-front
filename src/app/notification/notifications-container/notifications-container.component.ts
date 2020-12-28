@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { CNotification } from 'src/app/types/classes';
 import { NotificationService } from '../services/notification.service';
-import $ from 'jquery';
 
 @Component({
   selector: 'app-notifications-container',
@@ -8,14 +8,19 @@ import $ from 'jquery';
   styleUrls: ['./notifications-container.component.css']
 })
 export class NotificationsContainerComponent implements OnInit {
+  public notifications: {[day: string]: CNotification[]}
 
-  constructor(public notificationService: NotificationService, private host: ElementRef<HTMLElement>) { }
+  constructor(private _notificationService: NotificationService) { 
+    this._notificationService.notifications.subscribe(
+      (data) => this.notifications = data
+    )
+  }
 
   ngOnInit(): void {
   }
 
   public closeContainer(): void {
-    $('app-notifications-container').hide();
+    this._notificationService.hideFeed();
   }
 
 }

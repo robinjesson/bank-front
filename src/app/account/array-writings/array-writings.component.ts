@@ -17,7 +17,7 @@ import { WritingAddComponent } from '../writing-add/writing-add.component';
   templateUrl: './array-writings.component.html',
   styleUrls: ['./array-writings.component.less'],
 })
-export class ArrayWritingsComponent implements AfterViewInit{
+export class ArrayWritingsComponent {
   public showForm: boolean = false;
   public entries: TEntryResponse[];
   private _account: TAccountResponse;
@@ -55,10 +55,6 @@ export class ArrayWritingsComponent implements AfterViewInit{
     }
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
   public get account(): TAccountResponse {
     return this._account;
   }
@@ -80,7 +76,7 @@ export class ArrayWritingsComponent implements AfterViewInit{
     req.accountId = this._account.id;
     this._entryService.addEntry(req).subscribe(
       (entry: TEntryResponse) => {
-        this._toastService.show({text: 'Ajouté'}, false);
+        this._toastService.show({text: 'Ajouté'});
         this._account.total -= entry.amount;
         this.entries.push(entry);
         this.sortEntries();

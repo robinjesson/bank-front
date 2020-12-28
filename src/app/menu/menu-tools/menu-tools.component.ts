@@ -11,7 +11,7 @@ import { threadId } from 'worker_threads';
 })
 export class MenuToolsComponent implements OnInit {
 
-  constructor(private _authenticationService: AuthenticationService, private _notificationService: NotificationService) { }
+  constructor(private _authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
@@ -22,10 +22,6 @@ export class MenuToolsComponent implements OnInit {
 
   public onSignOut(): void {
     this._authenticationService.signOut();
-  }
-
-  public showNotificationContainer(): void {
-    this._notificationService.showFeed();
   }
 
 }

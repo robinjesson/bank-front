@@ -11,4 +11,7 @@
     <button class="menu-btn tab" *ngFor="let tab of tabsService.tabs" (click)="onTabClick(tab)">
         {{tab.name | translate:{index:tab.index} }} <span (click)="tabsService.closeTab(tab)" class="close-tab">&times;</span>
 </button>
+    <button class="menu-btn tool" (click)="showNotificationContainer()">
+    <i class="fas fa-bell"></i><span class="notifier" *ngIf="notificationService.newNotifications">&bull;</span>
+</button>
 </div>

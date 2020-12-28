@@ -1,4 +1,5 @@
 import { ComponentType } from '@angular/cdk/portal';
+import { Subject } from 'rxjs';
 import { EDialogAction, EFormType } from './enums';
 
 
@@ -17,8 +18,8 @@ export type TTab<T> = {
     index: number;
 }
 
-export type TNotification = {
-    text: string;
-    date?: Date;
-    showAction?: boolean;
-}
+// export type TNotification = {
+//     text: string;
+//     date?: Date;
+//     showAction?: boolean;
+// }

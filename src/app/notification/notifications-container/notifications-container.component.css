@@ -29,3 +29,9 @@
 .close:hover {
     color: black;
 }
+
+.date {
+    font-family: 'F1';
+    margin-top: 10px;
+    margin-left: 10px;
+}
