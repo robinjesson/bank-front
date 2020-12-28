@@ -7,6 +7,9 @@
     "private": {
         "noNotification": "Aucune notification"
     },
+    "tabs": {
+        "writing-add": "Ajouter une écriture {{index}}"
+    },
     "button": {
         "ok": "Ok",
         "cancel": "Annuler"

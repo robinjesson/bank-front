@@ -16,7 +16,7 @@ export class PrivateComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._router.navigate([{ outlets: { drawer: ['notifications'] } }], {relativeTo: this.route})
+    this._router.navigate([{ outlets: { drawer: ['user'] } }], {relativeTo: this.route})
   }
 
 }

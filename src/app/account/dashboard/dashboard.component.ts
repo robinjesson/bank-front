@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { TAccountResponse } from 'src/app/types/model';
 
 

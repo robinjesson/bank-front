@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NotificationService, TNotification } from '../services/notification.service';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { EDialogAction } from 'src/app/types/enums';
+import { TNotification } from 'src/app/types/types';
+import { NotificationService } from '../../notification/services/notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -7,7 +9,9 @@ import { NotificationService, TNotification } from '../services/notification.ser
   styleUrls: ['./notification.component.less']
 })
 export class NotificationComponent implements OnInit {
+  EDialogAction = EDialogAction;
   @Input() public notification: TNotification;
+  @Output() public action = new EventEmitter<EDialogAction>();
   public isHover: boolean = false;
   console = console;
   

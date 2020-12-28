@@ -14,4 +14,11 @@ export type TTab<T> = {
     id: TId;
     content?: T;
     component: ComponentType<unknown>;
+    index: number;
+}
+
+export type TNotification = {
+    text: string;
+    date?: Date;
+    showAction?: boolean;
 }

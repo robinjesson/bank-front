@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AccountService } from 'src/app/shared/services/account.service';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { EntryService } from 'src/app/shared/services/entry.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { TabsService } from 'src/app/shared/services/tabs.service';
 import { TEntryResponse, TAccountResponse, TEntryRequest } from 'src/app/types/model';
 import { WritingAddComponent } from '../writing-add/writing-add.component';

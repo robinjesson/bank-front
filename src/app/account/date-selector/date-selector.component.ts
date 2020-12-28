@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { AccountService } from 'src/app/shared/services/account.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { TEntryResponse } from 'src/app/types/model';
 
 

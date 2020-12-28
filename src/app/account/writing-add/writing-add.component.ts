@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EditorDialog } from 'src/app/shared/dialog/editor-dialog.class';
 import { EntryService } from 'src/app/shared/services/entry.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { TabsService } from 'src/app/shared/services/tabs.service';
 import { EFormType, EPeriodUnit } from 'src/app/types/enums';
 import { TAccountResponse, TEntryRequest, TEntryResponse } from 'src/app/types/model';
@@ -61,7 +61,7 @@ export class WritingAddComponent extends EditorDialog implements OnInit{
   }
 
   public onSave() {
-    super.onSave('writing-add.title', WritingAddComponent, this.data.idTab);
+    super.onSave('tabs.writing-add', WritingAddComponent, this.data.idTab);
   }
 
   protected createSave(): Object {

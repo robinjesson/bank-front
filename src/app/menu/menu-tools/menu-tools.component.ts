@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import $ from 'jquery';
+import { NotificationService } from 'src/app/notification/services/notification.service';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-menu-tools',
@@ -8,7 +11,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 })
 export class MenuToolsComponent implements OnInit {
 
-  constructor(private _authenticationService: AuthenticationService) { }
+  constructor(private _authenticationService: AuthenticationService, private _notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -19,6 +22,10 @@ export class MenuToolsComponent implements OnInit {
 
   public onSignOut(): void {
     this._authenticationService.signOut();
+  }
+
+  public showNotificationContainer(): void {
+    this._notificationService.showFeed();
   }
 
 }

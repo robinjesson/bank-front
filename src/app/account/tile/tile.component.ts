@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/shared/services/account.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { TAccountResponse } from 'src/app/types/model';
 
 

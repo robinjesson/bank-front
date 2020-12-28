@@ -7,6 +7,7 @@ import { take } from 'rxjs/operators';
 import { DialogService } from './dialog.service';
 import { EDialogAction } from 'src/app/types/enums';
 import { TranslateService } from '@ngx-translate/core';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 
 const TOKEN_KEY : string = 'auth-token';
 const USER_KEY : string  = 'auth-user';
@@ -18,7 +19,7 @@ const LANG_KEY : string  = 'lang';
 export class AuthenticationService {
 
   public constructor(private _httpClient: HttpClient, private _router: Router,
-    private _dialogService: DialogService, private _translate: TranslateService) {}
+    private _dialogService: DialogService, private _translate: TranslateService, private _feedService: NotificationService) {}
 
   public authenticate(username: string, password: string) : Observable<any> {
     return this._httpClient.post(API_AUTH, {
@@ -31,14 +32,16 @@ export class AuthenticationService {
    * Logs out the user
    */
   public async signOut() : Promise<void> {
-    switch(await this._dialogService.openMessageBox('messageBox.logout')) {
+    /*switch(await this._dialogService.openMessageBox('messageBox.logout')) {
       case EDialogAction.OK:
         window.sessionStorage.clear();
         this._router.navigate(['/signin']);
         break;
       default:
         break;
-    }
+    }*/
+
+    this._feedService.show({text: 'messageBox.logout', showAction: true})
   }
 
   /**

@@ -1,8 +1,0 @@
-<p id="date">{{today | today}}.</p>
-
-<p id="noNotification" *ngIf="_notificationService.notifications.length == 0; else notifications">
-    {{ 'private.noNotification' }}
-</p>
-<ng-template #notifications>
-    <app-notification *ngFor="let n of _notificationService.notifications" [notification]="n"></app-notification>
-</ng-template>

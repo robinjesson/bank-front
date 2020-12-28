@@ -1,6 +1,6 @@
 <div class="menu-bar">
     <button class="menu-btn tool" (click)="onOpenDrawer()">
-        <i class="fas" [ngClass]="{'fa-bars':!clicked, 'fa-times': clicked}"></i>
+        <i class="fas fa-bars"></i>
     </button>
     <button class="menu-btn tool" routerLinkActive="menu-btn-active" routerLink="dashboard">
     <i class="fas fa-table"></i>
@@ -9,6 +9,6 @@
     <i class="fas fa-chart-pie"></i>
 </button>
     <button class="menu-btn tab" *ngFor="let tab of tabsService.tabs" (click)="onTabClick(tab)">
-        {{tab.name | translate}} <span (click)="tabsService.closeTab(tab)" class="close-tab">&times;</span>
+        {{tab.name | translate:{index:tab.index} }} <span (click)="tabsService.closeTab(tab)" class="close-tab">&times;</span>
 </button>
 </div>

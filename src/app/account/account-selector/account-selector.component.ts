@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild, ViewChildren, QueryList, Input, Output, E
 import { MatTabGroup } from '@angular/material/tabs';
 import { DialogService } from 'src/app/shared/services/dialog.service';
 import { EntryService } from 'src/app/shared/services/entry.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { TAccountResponse } from 'src/app/types/model';
 import { ArrayWritingsComponent } from '../array-writings/array-writings.component';

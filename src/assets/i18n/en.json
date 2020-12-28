@@ -41,5 +41,8 @@
         "year": "Yearly",
         "end": "End of periodicity",
         "periodicity": "Periodicity"
+    },
+    "tabs": {
+        "writing-add": "Add an entry {{index}}"
     }
 }

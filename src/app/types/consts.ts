@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 
-export const API: string = 'http://192.168.1.14:9090';
+export const API: string = 'http://localhost:9090';
 export const API_AUTH: string = API + '/auth';
 export const API_USERS: string = API + '/users';
 export const API_ACCOUNTS: string = API + '/accounts';

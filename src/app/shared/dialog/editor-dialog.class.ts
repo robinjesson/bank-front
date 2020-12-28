@@ -14,7 +14,9 @@ export abstract class EditorDialog {
 
     public onSave(title: string, component: any, idTab?: TId) {
         if(idTab != null && idTab != undefined ) {
-            this._tabsService.updateContentToTab(idTab, this.createSave());
+
+            const a = this.createSave()
+            this._tabsService.updateContentToTab(idTab, a);
         }
         else {
             this._tabsService.addTab(title, component, this.createSave());

@@ -11,6 +11,7 @@ import { IdService } from './id.service';
 export class TabsService {
 
   private _tabs: TTab<any>[]= [];
+  private _count: number = 1;
 
   constructor(private _dialogService: DialogService, private _idService: IdService) { }
 
@@ -18,15 +19,14 @@ export class TabsService {
     return this._tabs;
   }
 
-  public addTab(name: string, coomponent: ComponentType<unknown>, content?: any): TId {
+  public addTab(name: string, component: ComponentType<unknown>, content?: any): TId {
     const id: TId = this._idService.nextId;
-    this._tabs.push({name: name, id: id, content: content, component: coomponent});
+    this._tabs.push({name: name, id: id, content: content, component: component, index: this._count++ });
     return id;
   }
 
   public updateContentToTab(idTab: TId, content: any) {
-    const i = this._tabs.findIndex(t => t.id !== idTab);
-    this._tabs[i].content = content;
+    this._tabs.find(t => t.id === idTab).content = content;
   }
 
   public closeTab(tab: TTab<unknown>) {

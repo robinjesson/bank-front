@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import * as sha512 from 'js-sha512';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
-import { NotificationService } from 'src/app/shared/services/notification.service';
+import { NotificationService } from 'src/app/notification/services/notification.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
